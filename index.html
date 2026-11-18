@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Закон есть — юридическая помощь в Санкт-Петербурге</title>
+<meta name="description" content="Команда юристов в Санкт-Петербурге: консультации, досудебное урегулирование, представительство в судах. Стаж более 20 лет.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4F1EA; --surface:#FFFFFF; --ink:#101C26; --muted:#5B646D;
+    --accent:#A9833F; --deep:#0D2838; --line:rgba(16,28,38,.14); --hairline:1px solid var(--line);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;overflow-x:clip}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:16px;overflow-x:clip;-webkit-font-smoothing:antialiased}
+  body.no-scroll{overflow:hidden}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600;line-height:1.15;overflow-wrap:break-word;min-width:0}
+  .label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+
+  .site-header{position:sticky;top:0;z-index:50;background:rgba(244,241,234,.92);backdrop-filter:blur(8px);border-bottom:var(--hairline)}
+  .site-header__inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+  .site-header__logo{font-family:'Playfair Display',serif;font-weight:700;font-size:22px}
+  .site-header__logo b{color:var(--accent);font-weight:700}
+  .site-nav__list{display:flex;gap:28px;list-style:none}
+  .site-nav__link{font-size:14px;color:var(--muted);transition:color .2s}
+  .site-nav__link:hover{color:var(--ink)}
+  .site-header__phone{font-weight:600;font-size:15px;color:var(--ink)}
+  .site-nav__toggle{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:8px 12px;font-size:14px;cursor:pointer;color:var(--ink)}
+
+  .hero{padding:120px 0 100px;border-bottom:var(--hairline)}
+  .hero__inner{display:grid;grid-template-columns:1fr;gap:32px;max-width:820px}
+  .hero__title{font-size:clamp(40px,7vw,72px);font-weight:600;letter-spacing:-.01em}
+  .hero__title em{font-style:normal;color:var(--accent)}
+  .hero__subtitle{font-size:18px;color:var(--muted);max-width:620px}
+  .hero__fact{font-size:15px;color:var(--ink)}
+  .hero__fact b{font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:var(--accent);margin-right:6px}
+  .hero__actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;padding:15px 28px;border-radius:4px;border:1px solid transparent;cursor:pointer;transition:transform .12s ease,background .2s ease,color .2s ease,border-color .2s ease}
+  .btn:active{transform:translateY(1px)}
+  .btn--primary{background:var(--ink);color:var(--bg)}
+  .btn--primary:hover{background:var(--deep)}
+  .btn--accent{background:var(--accent);color:#fff}
+  .btn--accent:hover{background:#8f6d31}
+  .btn--ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn--ghost:hover{border-color:var(--ink)}
+
+  .section{padding:110px 0;border-bottom:var(--hairline)}
+  .section--deep{background:var(--deep);color:#E8E2D6;border-bottom:none}
+  .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:56px;flex-wrap:wrap}
+  .section-head__title{font-size:clamp(30px,4vw,46px)}
+  .section-head__num{font-size:14px;color:var(--accent);letter-spacing:.14em;font-weight:600}
+
+  .services__list{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:var(--hairline)}
+  .service{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:36px 24px 36px 0;border-bottom:var(--hairline);transition:background .2s}
+  .service:nth-child(odd){padding-right:40px}
+  .service__num{font-family:'Playfair Display',serif;font-size:16px;color:var(--accent);font-weight:600;padding-top:4px}
+  .service__title{font-family:'Inter',sans-serif;font-weight:600;font-size:19px;margin-bottom:8px}
+  .service__text{color:var(--muted);font-size:15px}
+
+  .areas{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+  .area{border-top:1px solid var(--line);padding-top:24px}
+  .area__title{font-family:'Inter',sans-serif;font-weight:600;font-size:17px;margin-bottom:12px}
+  .area ul{list-style:none}
+  .area li{color:var(--muted);font-size:14.5px;padding:5px 0;border-bottom:1px dashed var(--line)}
+  .area li:last-child{border-bottom:none}
+
+  .team__list{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .team-card{border-top:1px solid var(--line);padding-top:24px}
+  .team-card__ava{width:72px;height:72px;border-radius:50%;background:var(--deep);color:#E8E2D6;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:28px;font-weight:600;margin-bottom:20px}
+  .team-card__name{font-size:20px;margin-bottom:4px}
+  .team-card__role{font-size:13px;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;font-weight:600;margin-bottom:12px}
+  .team-card__bio{font-size:14.5px;color:var(--muted)}
+
+  .trust__list{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+  .trust__value{font-family:'Playfair Display',serif;font-size:52px;font-weight:600;color:var(--accent);line-height:1}
+  .trust__label{font-size:14px;color:#A9B2B8;margin-top:8px}
+
+  .testimonials__list{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .testimonial-card{border-top:1px solid var(--line);padding-top:24px}
+  .testimonial-card__text{font-family:'Playfair Display',serif;font-size:19px;line-height:1.45;margin-bottom:20px}
+  .testimonial-card__name{font-weight:600;font-size:14.5px}
+  .testimonial-card__meta{font-size:13px;color:var(--muted);margin-top:2px}
+
+  .pricing__list{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .price-card{background:var(--surface);border:1px solid var(--line);padding:32px 28px;border-radius:4px;display:flex;flex-direction:column;gap:20px}
+  .price-card__name{font-family:'Inter',sans-serif;font-weight:600;font-size:16px}
+  .price-card__value{font-family:'Playfair Display',serif;font-size:34px;font-weight:600;color:var(--ink)}
+  .price-card__features{list-style:none;color:var(--muted);font-size:14px;display:flex;flex-direction:column;gap:8px}
+  .price-card__features li::before{content:"—";color:var(--accent);margin-right:8px}
+  .price-card .btn{margin-top:auto}
+
+  .contacts__grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+  .contacts__item{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:var(--hairline);font-size:16px}
+  .contacts__item .ic{color:var(--accent);font-weight:700;width:22px}
+  .contacts__note{color:var(--muted);font-size:14px;margin-top:16px}
+
+  .site-footer{padding:40px 0;color:var(--muted);font-size:13px}
+  .site-footer__inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+
+  [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+  [data-reveal].is-visible{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){ html.reduced-motion [data-reveal]{opacity:1;transform:none;transition:none} }
+
+  @media (max-width:900px){
+    .site-nav__list{display:none}
+    .site-nav__toggle{display:inline-block}
+    .site-nav.is-open .site-nav__list{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--bg);padding:20px 24px;gap:18px;border-bottom:var(--hairline)}
+    .services__list{grid-template-columns:1fr}
+    .service{padding-right:0}
+    .areas,.team__list,.testimonials__list,.pricing__list,.trust__list{grid-template-columns:1fr 1fr}
+    .contacts__grid{grid-template-columns:1fr}
+  }
+  @media (max-width:560px){
+    .areas,.team__list,.testimonials__list,.pricing__list,.trust__list{grid-template-columns:1fr}
+    .hero{padding:72px 0 64px}
+    .section{padding:72px 0}
+    .section-head__title{font-size:30px}
+    .site-header__phone{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" data-header>
+  <div class="site-header__inner container">
+    <a class="site-header__logo" href="#hero">Закон<b> есть</b></a>
+    <nav class="site-nav" data-menu aria-label="Основная навигация">
+      <button class="site-nav__toggle" data-burger type="button" aria-expanded="false" aria-controls="site-nav-list">Меню</button>
+      <ul class="site-nav__list" id="site-nav-list">
+        <li><a class="site-nav__link" href="#services">Услуги</a></li>
+        <li><a class="site-nav__link" href="#areas">Направления</a></li>
+        <li><a class="site-nav__link" href="#team">Команда</a></li>
+        <li><a class="site-nav__link" href="#testimonials">Отзывы</a></li>
+        <li><a class="site-nav__link" href="#pricing">Тарифы</a></li>
+        <li><a class="site-nav__link" href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+    <a class="site-header__phone" href="tel:+79313900965">8 931 390-09-65</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="hero">
+    <div class="hero__inner container">
+      <p class="label">Юридическая помощь · Санкт-Петербург</p>
+      <h1 class="hero__title" data-reveal>Команда юристов, которая <em>доводит дело до конца</em></h1>
+      <p class="hero__subtitle">Консультации, досудебные споры и представительство в судах. Берём задачу целиком — от первого вопроса до итогового решения.</p>
+      <p class="hero__fact"><b>20+</b> лет юридической практики · трое специалистов на вашей стороне</p>
+      <div class="hero__actions">
+        <a class="btn btn--accent" href="#contacts">Получить консультацию</a>
+        <a class="btn btn--ghost" href="#services">Смотреть услуги</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-head"><h2 class="section-head__title">Что мы делаем</h2><span class="section-head__num">01 — 07</span></div>
+      <ul class="services__list">
+        <li class="service" data-reveal><span class="service__num">01</span><div><h3 class="service__title">Юридические консультации</h3><p class="service__text">Разбираем ситуацию, честно оцениваем перспективы и даём понятный план действий. Без запугивания и невыполнимых обещаний.</p></div></li>
+        <li class="service" data-reveal><span class="service__num">02</span><div><h3 class="service__title">Досудебное урегулирование</h3><p class="service__text">Ведём переговоры, готовим претензии и мировые соглашения. Цель — закрыть спор до суда, быстро и дешевле.</p></div></li>
+        <li class="service" data-reveal><span class="service__num">03</span><div><h3 class="service__title">Составление и анализ документов</h3><p class="service__text">Готовим договоры, претензии и заявления. Проверяем документы, которые вы уже подписали или только собираетесь.</p></div></li>
+        <li class="service" data-reveal><span class="service__num">04</span><div><h3 class="service__title">Представительство в судах</h3><p class="service__text">Представляем ваши интересы во всех инстанциях — от подготовки иска до выступления в заседании. Нужен результат, а не процесс.</p></div></li>
+        <li class="service" data-reveal><span class="service__num">05</span><div><h3 class="service__title">Обжалование решений</h3><p class="service__text">Оспариваем судебные акты и постановления. Прежде чем взяться за дело, честно оцениваем реальные шансы.</p></div></li>
+        <li class="service" data-reveal><span class="service__num">06</span><div><h3 class="service__title">Исполнительное производство</h3><p class="service__text">Помогаем получить присуждённое: взыскиваем долги, работаем с приставами, добиваемся исполнения решения.</p></div></li>
+        <li class="service" data-reveal><span class="service__num">07</span><div><h3 class="service__title">Работа с органами власти</h3><p class="service__text">Сопровождаем обращения в государственные органы: жалобы, заявления, обжалование действий чиновников.</p></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="areas">
+    <div class="container">
+      <div class="section-head"><h2 class="section-head__title">Направления помощи</h2></div>
+      <div class="areas" data-reveal>
+        <div class="area">
+          <h3 class="area__title">Жилищные споры</h3>
+          <ul><li>Приватизация, оспаривание сделок купли-продажи и мены</li><li>Определение порядка пользования, выселение</li><li>Постановка на учёт нуждающихся в жилье</li><li>Социальные выплаты на жильё из бюджета СПб</li><li>Жильё по договору социального найма</li></ul>
+        </div>
+        <div class="area">
+          <h3 class="area__title">Вопросы по КоАП РФ</h3>
+          <ul><li>Обжалование постановлений об административных правонарушениях</li><li>Представительство в делах об административных правонарушениях</li></ul>
+        </div>
+        <div class="area">
+          <h3 class="area__title">Иные споры</h3>
+          <ul><li>Договорные: расторжение, пени, штрафы</li><li>Семейные, наследственные, земельные, трудовые</li><li>Страховые споры — возмещение вреда от ДТП</li><li>Исполнительное производство (ФССП), споры с УФАС</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="team">
+    <div class="container">
+      <div class="section-head"><h2 class="section-head__title">Команда</h2><span class="section-head__num">Трое на вашей стороне</span></div>
+      <div class="team__list">
+        <div class="team-card" data-reveal>
+          <div class="team-card__ava">К</div>
+          <h3 class="team-card__name">Борисов Константин Сергеевич</h3>
+          <p class="team-card__role">Старший юрист · 20+ лет</p>
+          <p class="team-card__bio">Более двадцати лет в профессии. Честно оценивает перспективы дела и выбирает самый короткий путь к результату.</p>
+        </div>
+        <div class="team-card" data-reveal>
+          <div class="team-card__ava">—</div>
+          <h3 class="team-card__name">[ФИО]</h3>
+          <p class="team-card__role">[Специализация]</p>
+          <p class="team-card__bio">[Короткое описание юриста — добавим после получения данных.]</p>
+        </div>
+        <div class="team-card" data-reveal>
+          <div class="team-card__ava">—</div>
+          <h3 class="team-card__name">[ФИО]</h3>
+          <p class="team-card__role">[Специализация]</p>
+          <p class="team-card__bio">[Короткое описание юриста — добавим после получения данных.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--deep" id="trust">
+    <div class="container">
+      <div class="section-head"><h2 class="section-head__title">Нам доверяют</h2></div>
+      <div class="trust__list" data-reveal>
+        <div><div class="trust__value">20+</div><div class="trust__label">лет практики ведущего юриста</div></div>
+        <div><div class="trust__value">3</div><div class="trust__label">юриста ведут ваше дело сообща</div></div>
+        <div><div class="trust__value">7</div><div class="trust__label">направлений помощи под одной крышей</div></div>
+        <div><div class="trust__value">24/7</div><div class="trust__label">на связи по вашим вопросам</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials">
+    <div class="container">
+      <div class="section-head"><h2 class="section-head__title">Нас благодарят</h2></div>
+      <div class="testimonials__list">
+        <div class="testimonial-card" data-reveal>
+          <p class="testimonial-card__text">«Помогли выиграть спор с застройщиком. Всегда на связи, объясняют простыми словами. Итог — деньги вернули.»</p>
+          <div class="testimonial-card__name">[Имя]</div><div class="testimonial-card__meta">спор о взыскании неустойки</div>
+        </div>
+        <div class="testimonial-card" data-reveal>
+          <p class="testimonial-card__text">«Составили договор и спасли от невыгодной сделки. Вовремя заметили пункт, который дорого бы обошёлся.»</p>
+          <div class="testimonial-card__name">[Имя]</div><div class="testimonial-card__meta">проверка договора</div>
+        </div>
+        <div class="testimonial-card" data-reveal>
+          <p class="testimonial-card__text">«Представляли в суде по трудовому спору. Процесс выиграли, на работе восстановили.»</p>
+          <div class="testimonial-card__name">[Имя]</div><div class="testimonial-card__meta">трудовой спор</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-head"><h2 class="section-head__title">Тарифы</h2><span class="section-head__num">Фиксированная стоимость</span></div>
+      <div class="pricing__list">
+        <div class="price-card" data-reveal>
+          <h3 class="price-card__name">Консультация, анализ документов</h3>
+          <div class="price-card__value">от 3 000 ₽</div>
+          <ul class="price-card__features"><li>Разбор ситуации</li><li>Оценка перспектив</li><li>План действий</li></ul>
+          <a class="btn btn--primary" href="#contacts">Записаться</a>
+        </div>
+        <div class="price-card" data-reveal>
+          <h3 class="price-card__name">Досудебное урегулирование</h3>
+          <div class="price-card__value">от 5 000 ₽</div>
+          <ul class="price-card__features"><li>Претензия</li><li>Переговоры</li><li>Мировое соглашение</li></ul>
+          <a class="btn btn--primary" href="#contacts">Записаться</a>
+        </div>
+        <div class="price-card" data-reveal>
+          <h3 class="price-card__name">Иск, жалоба, возражение</h3>
+          <div class="price-card__value">от 3 000 ₽</div>
+          <ul class="price-card__features"><li>Подготовка документа</li><li>Правовая позиция</li><li>Аргументация</li></ul>
+          <a class="btn btn--primary" href="#contacts">Записаться</a>
+        </div>
+        <div class="price-card" data-reveal>
+          <h3 class="price-card__name">Представительство в суде</h3>
+          <div class="price-card__value">от 5 000 ₽</div>
+          <ul class="price-card__features"><li>Ведение дела</li><li>Все инстанции</li><li>До итогового решения</li></ul>
+          <a class="btn btn--accent" href="#contacts">Обсудить дело</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacts">
+    <div class="container">
+      <div class="section-head"><h2 class="section-head__title">Контакты</h2></div>
+      <div class="contacts__grid">
+        <div data-reveal>
+          <p class="hero__subtitle" style="margin-bottom:24px">Опишите ситуацию — ответим в течение дня и предложим план действий.</p>
+          <div class="contacts__item"><span class="ic">☎</span><a href="tel:+79313900965">8 931 390-09-65</a></div>
+          <div class="contacts__item"><span class="ic">✉</span><a href="mailto:Kostyaborisov@rambler.ru">Kostyaborisov@rambler.ru</a></div>
+          <div class="contacts__item"><span class="ic">➤</span><a href="https://t.me/Konstantinzakon" target="_blank" rel="noopener">Telegram: @Konstantinzakon</a></div>
+          <div class="contacts__item"><span class="ic">✆</span><a href="https://wa.me/79313900965" target="_blank" rel="noopener">WhatsApp</a></div>
+          <p class="contacts__note">Санкт-Петербург</p>
+        </div>
+        <div class="team-card" data-reveal style="border-top:1px solid var(--line)">
+          <div class="team-card__ava" style="background:var(--accent)">К</div>
+          <h3 class="team-card__name">Борисов Константин Сергеевич</h3>
+          <p class="team-card__role">Старший юрист команды</p>
+          <p class="team-card__bio">Решим вашу проблему — законным и коротким путём.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__inner container">
+    <p>© 2026 Закон есть · Юридическая помощь в Санкт-Петербурге</p>
+    <nav><a href="#services" style="margin-right:16px">Услуги</a><a href="#pricing" style="margin-right:16px">Тарифы</a><a href="#contacts">Контакты</a></nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+  var reduced = function(){ return mq.matches; };
+  if(mq.matches) document.documentElement.classList.add('reduced-motion');
+  mq.addEventListener('change', function(e){ document.documentElement.classList.toggle('reduced-motion', e.matches); });
+
+  var burger = document.querySelector('[data-burger]');
+  var menu = document.querySelector('[data-menu]');
+  if(burger && menu){
+    function closeMenu(){ menu.classList.remove('is-open'); burger.classList.remove('is-active'); burger.setAttribute('aria-expanded','false'); document.body.classList.remove('no-scroll'); }
+    burger.addEventListener('click', function(){
+      var open = menu.classList.toggle('is-open');
+      burger.classList.toggle('is-active', open);
+      burger.setAttribute('aria-expanded', String(open));
+      document.body.classList.toggle('no-scroll', open);
+    });
+    menu.addEventListener('click', function(e){ if(e.target.closest('a[href^="#"]')) closeMenu(); });
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+  }
+
+  var header = document.querySelector('[data-header]');
+  var OFFSET = 16;
+  var headerH = function(){ return header ? header.getBoundingClientRect().height : 0; };
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener('click', function(e){
+      var id = link.getAttribute('href');
+      if(!id || id.length<=1) return;
+      var target = document.querySelector(id);
+      if(!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.pageYOffset - headerH() - OFFSET;
+      window.scrollTo({top:top, behavior: reduced() ? 'auto' : 'smooth'});
+      history.pushState(null,'',id);
+    });
+  });
+
+  var items = document.querySelectorAll('[data-reveal]');
+  if('IntersectionObserver' in window && !reduced()){
+    var io = new IntersectionObserver(function(entries, obs){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('is-visible'); obs.unobserve(en.target); } });
+    }, {threshold:0.15, rootMargin:'0px 0px -40px 0px'});
+    items.forEach(function(it){ io.observe(it); });
+  } else {
+    items.forEach(function(it){ it.classList.add('is-visible'); });
+  }
+})();
+</script>
+</body>
+</html>
